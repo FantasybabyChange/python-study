@@ -1,1 +1,1 @@
-# pythone-study
+# python-study
