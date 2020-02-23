@@ -20,7 +20,13 @@ nameWithCount = {}
 with open('../san_name.txt', encoding='GB18030') as file:
     for heroName in file.read().split("|"):
         nameWithCount[heroName] = search_hero_count('../sanguo.txt', heroName)
-sorted_name = sorted(nameWithCount.items(), key=lambda item: item[1], reverse= True)
+sorted_name = sorted(nameWithCount.items(), key=lambda item: item[1], reverse=True)
 print(nameWithCount)
 print(sorted_name)
 
+with open('../weapon.txt', encoding='GB18030') as wf:
+    i = 0
+    for line in wf.readlines():
+        if i % 2 == 0:
+            print(line.replace('\n',""))
+        i += 1
