@@ -24,3 +24,19 @@ newd = {}
 r6 = dict(zip(d1.values(), d1.keys()))
 print(r6)  # {'c': 'a', 'd': 'b'}
 
+
+def createCounter():
+    i=0
+    def counter():
+        return i
+    i+=1
+    return counter
+counter = createCounter()
+print(counter())
+print(counter())
+print(counter())
+
+
+s1={1,2,3}
+s2 = {4, 5, 6,3}
+s3 = {4,3, 6, 5}
