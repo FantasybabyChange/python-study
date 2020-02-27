@@ -28,5 +28,5 @@ with open('../weapon.txt', encoding='GB18030') as wf:
     i = 0
     for line in wf.readlines():
         if i % 2 == 0:
-            print(line.replace('\n',""))
+            print(line.replace('\n', ""))
         i += 1

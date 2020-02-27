@@ -5,14 +5,12 @@
 # print(next(interStr))
 # print(next(interStr))
 # print(next(interStr))
-#generators
-def  rangf(start,end,step):
-        while start < end:
-            yield start
-            start += step
+# generators
+def rangf(start, end, step):
+    while start < end:
+        yield start
+        start += step
 
-for v in rangf(1,20,1.5):
+
+for v in rangf(1, 20, 1.5):
     print(v)
-
-
-
