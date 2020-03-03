@@ -9,12 +9,16 @@ def execute_time_caculate(func):
         start_time = time.time()
         func()
         end_time = time.time()
-        print(end_time -start_time)
+        print(end_time - start_time)
+
     return wrapper
+
 
 @execute_time_caculate
 def func_execute():
     print("executor")
+
+
 func_execute()
 
 # 练习二 定义装饰器，实现不同颜色显示执行结果的功能
