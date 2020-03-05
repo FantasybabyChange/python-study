@@ -1,11 +1,14 @@
 # -*- coding:utf-8 -*-   # 这行声明python源文件编码，编码信息会被解释器用于解析源文件
-from flask import Flask
+from flask import Flask,request,Response,jsonify
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/hello', methods=['POST'])
 def hello():
+    print(request.get_json())
+    print(request.args["a"])
+
     return "hello world"
 
 
