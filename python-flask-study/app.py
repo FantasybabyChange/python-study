@@ -7,15 +7,16 @@ app = Flask(__name__)
 
 @app.route('/hello', methods=['POST'])
 def hello():
-    # if request.is_json:
-    #     script_str = str(request.get_json())
-    # else:
-    script_str = str(request.get_data(), encoding="utf8")
+    if request.is_json:
+        script_str = str(request.get_json())
+    else:
+        script_str = str(request.get_data(), encoding="utf8")
     if script_str is None:
         return 'empty data script send failed'  # 啥都没有
     print(script_str)
     script_save_path = "/home/fantasybaby/script"
-
+    print(script_str['error_code'])
+    print(script_str['error_level'])
     file_full_path = script_save_path + '/script.txt'
     if not os.path.exists(script_save_path):
         os.makedirs(script_save_path)
@@ -23,6 +24,20 @@ def hello():
     with open(file_full_path, 'w') as script_file:
         script_file.write(script_str)
 
+    return ' send success!'  # 返回保存成功的信息
+
+
+@app.route('/send_json', methods=['POST'])
+def send_json():
+    if request.is_json:
+        script_str = dict(request.get_json())
+    else:
+        script_str = str(request.get_data(), encoding="utf8")
+    if script_str is None:
+        return 'empty data script send failed'  # 啥都没有
+    print(script_str)
+    print(script_str.get('error_code'))
+    print(script_str.get('error_level'))
     return ' send success!'  # 返回保存成功的信息
 
 
