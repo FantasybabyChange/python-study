@@ -17,8 +17,23 @@ p1 = 'd*g'
 match_str = 'gggggggg'
 print(Matcher(p1, match_str).match())
 
-
 p2 = 'do{3}g'
 match_str = 'dooog'
 print(Matcher(p2, match_str).match())
+p3 = '....-..-..'
+match_str = "2020-03-10"
+print(Matcher(p3, match_str).match())
 
+p3 = r'(\d+)-(\d+)-(\d+)'
+match_str = "2020-03-10"
+print(Matcher(p3, match_str).match().group())
+year, month, day = Matcher(p3, match_str).match().groups()
+print(year)
+
+# search
+
+p3 = r'(\d+)-(\d+)-(\d+)'
+match_str = "2020-03aa-10asa"
+print(Matcher(p3, match_str).match().group())
+year, month, day = Matcher(p3, match_str).match().groups()
+print(year)
