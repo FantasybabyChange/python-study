@@ -7,6 +7,8 @@ app = Flask(__name__)
 
 @app.route('/hello', methods=['POST'])
 def hello():
+    script_str = request.get_data().decode('utf8')
+    print(type(script_str))
     if request.is_json:
         script_str = str(request.get_json())
     else:
@@ -36,7 +38,9 @@ def send_json():
     if script_str is None:
         return 'empty data script send failed'  # 啥都没有
     print(script_str)
-    print(script_str.get('error_code'))
+    print(script_str.get('error_code') is None)
+    print(script_str.get('error_level') is None)
+    print(int(script_str.get('error_code')))
     print(script_str.get('error_level'))
     return ' send success!'  # 返回保存成功的信息
 
