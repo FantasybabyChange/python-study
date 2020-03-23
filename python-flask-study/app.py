@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-   # 这行声明python源文件编码，编码信息会被解释器用于解析源文件
-from flask import Flask, request, Response, jsonify
+from flask import Flask, request, Response, jsonify, send_from_directory, send_file, make_response
 import os
 
 app = Flask(__name__)
@@ -43,6 +43,21 @@ def send_json():
     print(int(script_str.get('error_code')))
     print(script_str.get('error_level'))
     return ' send success!'  # 返回保存成功的信息
+
+
+@app.route('/')
+def index():
+    # return '<a href="/download"> 文件下载 </a>'
+    print("---")
+
+
+@app.route('/download1')
+def download1():
+    print("0----")
+    # response = make_response(
+    #     )
+    # response.headers["Content-Disposition"] = "attachment; filename={}".format("haha.log")
+    return send_file("D:\\flash.log", mimetype="text/plain", as_attachment=True, attachment_filename="heheh.log")
 
 
 print(__name__)
