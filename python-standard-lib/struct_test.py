@@ -18,3 +18,10 @@ print(a[5:-1])
 print(struct.pack('B', 0x08))
 
 int('1101', 2)
+
+b1 = 0b1110001
+d1 = 0x20
+if b1 & (1 << 1):
+    print(1)
+else:
+    print(0)
