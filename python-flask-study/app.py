@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-   # 这行声明python源文件编码，编码信息会被解释器用于解析源文件
 from flask import Flask, request, Response, jsonify, send_from_directory, send_file, make_response
 import os
+import json
 
 app = Flask(__name__)
 
@@ -58,6 +59,20 @@ def download1():
     #     )
     # response.headers["Content-Disposition"] = "attachment; filename={}".format("haha.log")
     return send_file("D:\\flash.log", mimetype="text/plain", as_attachment=True, attachment_filename="heheh.log")
+@app.route('/doSendMapInfo',methods=['GET'])
+def doSendMapInfo():
+    mapfile = open("D:\map.json", "r")
+    mapdata = mapfile.read()
+    print(mapdata)
+    # mapInfos = json.load(mapdata)
+    return generateResponse(success=True,data=mapdata)
+
+def generateResponse( success, data="", message=""):
+    ret = {}
+    ret["success"] = success
+    ret["data"] = data
+    ret["errorMsg"] = message
+    return jsonify(ret)
 
 
 print(__name__)
