@@ -42,3 +42,8 @@ print(data)
 # print(data.dropna(how="all"))
 # 删除缺失的一列
 print(data.dropna(axis=1, how="all"))
+
+# print(data.fillna(0))
+# 直接替换
+data.fillna(0, inplace=True)
+print(data)
