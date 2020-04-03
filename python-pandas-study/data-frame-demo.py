@@ -47,3 +47,11 @@ print(data.dropna(axis=1, how="all"))
 # 直接替换
 data.fillna(0, inplace=True)
 print(data)
+import numpy as np
+
+# 层次索引
+s1 = Series(np.random.random(4), index=[['a', 'a', 'b', 'b'], [1, 2, 3, 4]])
+print(s1)
+print(s1['a'])
+unstack = s1.unstack()
+print(s1.unstack())
