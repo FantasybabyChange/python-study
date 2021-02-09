@@ -124,3 +124,6 @@ if __name__ == '__main__':
     time.sleep(1)
     t2 = threading.Thread(target=send.longTest)
     t2.start()
+    # a = 0.76
+    # b = 0.8
+    # print(a == b)
