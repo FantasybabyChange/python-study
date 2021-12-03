@@ -126,9 +126,9 @@ if __name__ == '__main__':
     # convert_pgm_by_PIL(in_path, out_path)
 
     # Image.open("D:/py1.png").save("D:/py1.pgm")
-
-    Image.open("D:/py1.pgm").save("D:/py2.png")
-
+    # Image.open("D:/py2.png").save("D:/py2.pgm")
+    # Image.open("D:/py1.pgm").save("D:/py3.png")
+    Image.open("D:/py2.pgm").save("D:/py4.png")
 
 # elif isbatch:
 # 批量转换
